@@ -44,31 +44,34 @@ public class TicTacToe implements ActionListener {
             buttons[i].setFont(new Font("MV Boli", Font.BOLD, 120));
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
+            buttons[i].setBackground(new Color(230,255,255));
         }
+
         JButton reset = new JButton("New game");
-        JButton exit = new JButton("Exit");
 
         reset.setForeground(Color.lightGray);
         reset.setBackground(Color.DARK_GRAY);
         reset.setFont(new Font("sans-serif",Font.BOLD,30));
 
-        exit.setForeground(Color.lightGray);
-        exit.setBackground(Color.DARK_GRAY);
-        exit.setFont(new Font("sans-serif",Font.BOLD,30));
-
-        menu_panel.add(reset);
-        menu_panel.add(exit);
-
         reset.addActionListener(e -> {
             for(int i=0; i<9; i++) {
                 buttons[i].setText("");
                 buttons[i].setEnabled(true);
+                buttons[i].setBackground(new Color(230,255,255));
             }
             firstTurn();
         });
 
+        JButton exit = new JButton("Exit");
+
+        exit.setForeground(Color.lightGray);
+        exit.setBackground(Color.DARK_GRAY);
+        exit.setFont(new Font("sans-serif",Font.BOLD,30));
+
         exit.addActionListener(e -> System.exit(0));
 
+        menu_panel.add(reset);
+        menu_panel.add(exit);
         title_panel.add(text_field);
         frame.add(title_panel, BorderLayout.NORTH);
         frame.add(button_panel);
